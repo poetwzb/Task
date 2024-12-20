@@ -1,0 +1,91 @@
+Details.Type,Details.Status,Details.Priority,Details.Resolution,Details.Affects Version/s,Details.Fix Version/s,Details.Component/s,Details.Labels,Details.Patch Info,Details.Estimated Complexity,People.Assignee,People.Reporter,People.Votes,People.Watchers,Dates.Created,Dates.Updated,Dates.Resolved,Description,Issue Links,Activity.Comment.ASF GitHub Bot added a comment - 2016-12-14T14:55:56+0000,Activity.Comment.Bob Paulin added a comment - 2016-12-14T14:56:06+0000,Activity.Comment.Claus Ibsen added a comment - 2016-12-14T15:31:58+0000,Activity.Comment.ASF GitHub Bot added a comment - 2016-12-14T15:34:04+0000,Activity.Comment.Andrea Cosentino added a comment - 2016-12-15T14:05:25+0000,Activity.Comment.Claus Ibsen added a comment - 2016-12-15T14:26:13+0000,WorkLog,Activity.history,Activity.Activity,Activity.Transitions
+Bug,Resolved,Minor,Fixed,2.18.0,"2.17.5,                                            2.18.2,                                            2.19.0",camel-swagger,,Patch Available,Unknown,Claus Ibsen,Bob Paulin,0,4,14/Dec/16 14:42,15/Dec/16 14:26,14/Dec/16 15:31,"Assume I have rest path And in the type ClassA contains a reference to ClassB. Within the Swagger Doc the path for ClassA renders as expected: However ClassB gets a string parameter scheme However I'd expect it to be: Code block:
+rest(""/test"").get().type(ClassA.class).to(""direct:someRoute"");rest(""/testSub"").get().type(ClassB.class).to(""direct:someOtherRoute"");
+ Code block:
+/test:
+    get:
+      responses:
+        200:
+          schema:
+            $ref:'#/definitions/ClassA'
+ Code block:
+/testSub:
+    get:
+      responses:
+        200:
+          schema:
+             type :'string'format :'com.ClassB'
+ Code block:
+/testSub:
+    get:
+      responses:
+        200:
+          schema:
+            $ref:'#/definitions/ClassB'
+",links to GitHub Pull Request #1348 https://github.com/apache/camel/pull/1348,"GitHub user ASF GitHub Bot opened a pull request:
+
+https://github.com/apache/camel/pull/1348
+
+GitHub user bobpaulin opened a pull request:https://github.com/apache/camel/pull/1348CAMEL-10597- Allow addition of x-className to empty VendorExtensionsYou can merge this pull request into a Git repository by running:$ git pullhttps://github.com/bobpaulin/camelCAMEL-10597Alternatively you can review and apply these changes as the patch at:https://github.com/apache/camel/pull/1348.patchTo close this pull request, make a commit to your master/trunk branchwith (at least) the following in the commit message:This closes #1348",PR included https://github.com/apache/camel/pull/1348,Thanks for the PR,"GitHub user ASF GitHub Bot closed the pull request at:
+
+https://github.com/apache/camel/pull/1348
+
+Github user bobpaulin closed the pull request at:https://github.com/apache/camel/pull/1348",2.17.x is affected toodavsclaus,Thanks its backported now,No work has yet been logged on this issue.,"Work Log Data:
+No work has yet been logged on this issue.
+
+Change History Data:
+Change Author: Bob Paulin
+Change Date: 14/Dec/16 14:42
+--------------------------------------------------
+Change Author: ASF GitHub Bot
+Change Date: 14/Dec/16 14:55
+Field: Remote Link
+Old Value: 
+New Value: This issue links to ""GitHub Pull Request #1348 (Web Link)""[    64510
+]
+--------------------------------------------------
+Change Author: Claus Ibsen
+Change Date: 14/Dec/16 15:31
+Field: Fix Version/s
+Old Value: 
+New Value: 2.18.2[    12338705
+]
+Field: Fix Version/s
+Old Value: 
+New Value: 2.19.0[    12337871
+]
+Field: Assignee
+Old Value: 
+New Value: Claus Ibsen[    davsclaus
+]
+Field: Resolution
+Old Value: 
+New Value: Fixed[    1
+]
+Field: Status
+Old Value: Open[    1
+]
+New Value: Resolved[    5
+]
+--------------------------------------------------
+Change Author: ASF GitHub Bot
+Change Date: 14/Dec/16 15:34
+Field: Remote Link
+Old Value: This issue links to ""GitHub Pull Request #1348 (Web Link)""[    64510
+]
+New Value: This issue links to ""GitHub Pull Request #1348 (Web Link)""[    64510
+]
+--------------------------------------------------
+Change Author: Claus Ibsen
+Change Date: 15/Dec/16 14:26
+Field: Fix Version/s
+Old Value: 
+New Value: 2.17.5[    12338762
+]
+--------------------------------------------------
+",,"Claus Ibsen made transition - 14/Dec/16 15:31
+Transition: Open to Resolved
+Time In Source Status: 49m 49s
+Execution Times: 1
+--------------------------------------------------------------------------------
+"
